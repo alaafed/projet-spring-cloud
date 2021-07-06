@@ -1,0 +1,13 @@
+#NB:routage static.pour le rendre dynamic on l'a commenté et a  créé une classe de configuration java voir la classe GatwayApplication
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id : r1
+          uri : http://localhost:8081/
+          predicates :
+          - Path= /customers/**
+        - id : r2
+          uri : http://localhost:8082/
+          predicates:
+          - Path= /products/**
